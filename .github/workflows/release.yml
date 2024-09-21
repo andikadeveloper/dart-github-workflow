@@ -5,7 +5,6 @@ on:
     types:
     - created
 env:
-  PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
