@@ -11,7 +11,7 @@ void main(List<String> args) {
   pkg.name.value = _packageName;
   pkg.humanName.value = _packageName;
   pkg.githubUser.value = owner;
-  pkg.githubRepo.value = '$owner/$_packageName';
+  pkg.githubRepo.value = '$owner/$repo';
   pkg.githubBearerToken.value = Platform.environment['GITHUB_TOKEN'];
   pkg.githubReleaseNotes.fn = () => File('CHANGELOG.md').readAsStringSync();
 
