@@ -1,9 +1,9 @@
 name: Deploy Release
 
 on:
-  release:
-    types:
-    - created
+  push:
+    tags:
+    - "v*"
 env:
   GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
