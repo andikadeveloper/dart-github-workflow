@@ -3,7 +3,7 @@ name: Deploy Release
 on:
   release:
     types:
-      - created
+    - created
 env:
   PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -13,19 +13,19 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Prepare environment
-        uses: ./.github/actions/prepare
+    - name: Prepare environment
+      uses: ./.github/actions/prepare
 
-      - name: Deploy
-        run: dart compile exe bin/main.dart -o supagen
+    - name: Deploy
+      run: dart compile exe bin/dart_github_workflow.dart -o dart_github_workflow
 
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./supagen
-          asset_name: supagen
-          asset_content_type: application/octet-stream
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./dart_github_workflow
+        asset_name: dart_github_workflow
+        asset_content_type: application/octet-stream
