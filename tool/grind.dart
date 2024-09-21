@@ -13,7 +13,6 @@ void main(List<String> args) {
   pkg.githubUser.value = owner;
   pkg.githubRepo.value = '$owner/$repo';
   pkg.githubBearerToken.value = Platform.environment['GITHUB_TOKEN'];
-  pkg.githubReleaseNotes.fn = () => File('CHANGELOG.md').readAsStringSync();
 
   pkg.addGithubTasks();
 
