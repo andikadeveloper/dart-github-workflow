@@ -1,3 +1,3 @@
 release:
-	git tag -a $1 -m "Release $1"
-	git push origin $1
+	git tag -a $(version) -m "Release $(version)"
+	git push origin $(version)
