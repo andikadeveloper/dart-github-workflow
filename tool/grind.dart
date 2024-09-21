@@ -13,6 +13,7 @@ void main(List<String> args) {
   pkg.githubUser.value = owner;
   pkg.githubRepo.value = '$owner/$_packageName';
   pkg.githubBearerToken.value = Platform.environment['GITHUB_TOKEN'];
+  pkg.githubReleaseNotes.fn = () => File('CHANGELOG.md').readAsStringSync();
 
   pkg.addAllTasks();
 
@@ -21,5 +22,8 @@ void main(List<String> args) {
 
 @Task('Compile')
 void compile() {
-  run('dart', arguments: ['compile', 'exe', 'bin/main.dart', '-o', 'fvm']);
+  run(
+    'dart',
+    arguments: ['compile', 'exe', 'bin/$_packageName.dart', '-o', _packageName],
+  );
 }
