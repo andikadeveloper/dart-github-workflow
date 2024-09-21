@@ -15,7 +15,7 @@ void main(List<String> args) {
   pkg.githubBearerToken.value = Platform.environment['GITHUB_TOKEN'];
   pkg.githubReleaseNotes.fn = () => File('CHANGELOG.md').readAsStringSync();
 
-  pkg.addAllTasks();
+  pkg.addGithubTasks();
 
   grind(args);
 }
